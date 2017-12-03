@@ -9,6 +9,14 @@ public abstract class ChessBoardSquare {
     public ChessBoardSquare(){
 
     }
+    public void markEmpty(){
+        isEmpty = true;
+        this.piece = null;
+    }
+    public void putPiece(Piece piece){
+        isEmpty = false;
+        this.piece = piece;
+    }
     public abstract Piece getPiece();
     public abstract Boolean isEmpty();
 }
@@ -21,6 +29,7 @@ class OccupiedChessBoardSquare extends ChessBoardSquare{
     public Piece getPiece() {
         return this.piece;
     }
+    @Override
     public Boolean isEmpty(){
         return false;
     }
